@@ -1,16 +1,20 @@
 <?php namespace Xjson\Xml;
 
+use Carbon\Carbon;
+use Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class XmlTransformer implements XmlInterface
 {
     /**
-     * @param $xml
+     * @param $file
      * @param string $namespaces
      * @return \Illuminate\Support\Collection
      */
-    public function toJson($xml, $namespaces = null)
+    public function toJson($file, $namespaces = null)
     {
+        $xml = \File::get(storage_path('xmlFiles/' . $file));
         $xmlToConvert = $namespaces ?
             simplexml_load_string($this->removeNamespace($xml, $namespaces)) :
             simplexml_load_string($xml);
@@ -36,5 +40,17 @@ class XmlTransformer implements XmlInterface
             $xml = preg_replace($pattern, '', $xml, 1);
         }
         return $xml;
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function saveAndNameFile(Request $request)
+    {
+        $file = $request->file('xml');
+        $randomName = md5(Hash::make(Carbon::now()->toTimeString()));
+        $file->move(storage_path('xmlFiles'), $randomName);
+        return $randomName;
     }
 }

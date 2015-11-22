@@ -6,7 +6,7 @@ interface XmlInterface
 {
     /**
      * @param $xml
-     * @param array $namespaces
+     * @param string $namespaces
      * @return \Illuminate\Support\Collection
      */
     public function toJson($xml, $namespaces = null);

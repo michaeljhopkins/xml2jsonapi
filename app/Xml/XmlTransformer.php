@@ -6,7 +6,7 @@ class XmlTransformer implements XmlInterface
 {
     /**
      * @param $xml
-     * @param array $namespaces
+     * @param string $namespaces
      * @return \Illuminate\Support\Collection
      */
     public function toJson($xml, $namespaces = null)
@@ -21,7 +21,7 @@ class XmlTransformer implements XmlInterface
 
     /**
      * @param $xml
-     * @param array $namespaces
+     * @param string $namespaces
      * @return string
      */
     private function removeNamespace($xml, $namespaces)

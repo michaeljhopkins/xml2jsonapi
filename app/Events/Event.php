@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Xjson\Events;
 
 abstract class Event
 {

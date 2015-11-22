@@ -1,5 +1,12 @@
 <?php
 
+use Barryvdh\Debugbar\Facade;
+use Barryvdh\Debugbar\ServiceProvider;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Collective\Html\FormFacade;
+use Collective\Html\HtmlFacade;
+use Collective\Html\HtmlServiceProvider;
+
 return [
 
     /*
@@ -138,12 +145,20 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Package Service Providers
+         */
+
+        IdeHelperServiceProvider::class,
+        ServiceProvider::class,
+        HtmlServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Xjson\Providers\AppServiceProvider::class,
+        Xjson\Providers\AuthServiceProvider::class,
+        Xjson\Providers\EventServiceProvider::class,
+        Xjson\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -158,7 +173,7 @@ return [
     |
     */
 
-    'aliases' => [
+    'aliases' => array(
 
         'App'       => Illuminate\Support\Facades\App::class,
         'Artisan'   => Illuminate\Support\Facades\Artisan::class,
@@ -194,6 +209,14 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-    ],
+        /*
+         * Package facades
+         */
+
+        'Html' => HtmlFacade::class,
+        'Form' => FormFacade::class,
+        'Debugbar' => Facade::class,
+
+    ),
 
 ];

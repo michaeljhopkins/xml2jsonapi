@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Xjson\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

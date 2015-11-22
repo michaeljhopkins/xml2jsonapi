@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace Xjson\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Inspire::class,
+        \Xjson\Console\Commands\Inspire::class,
     ];
 
     /**

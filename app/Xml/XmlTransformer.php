@@ -25,6 +25,7 @@ class XmlTransformer implements XmlInterface
      * @param $xml
      * @param string $namespaces
      * @return string
+     * The original code for this process came from BENderIsGr8te at Laracasts. https://laracasts.com/discuss/channels/general-discussion/converting-xml-to-jsonarray/replies/112561
      */
     private function removeNamespace($xml, $namespaces)
     {

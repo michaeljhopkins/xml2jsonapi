@@ -26,7 +26,18 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        $file = $this->xmlTransformer->saveAndNameFile($request);
+        $file = '/xmlFiles/'.$this->xmlTransformer->saveAndNameFile($request);
+        return $this->takeRequestAndFileReturnJson($request,$file);
+    }
+
+    public function testPost(Request $request)
+    {
+        $file = '/exampleXml/example.xml';
+        return $this->takeRequestAndFileReturnJson($request,$file);
+    }
+
+    private function takeRequestAndFileReturnJson(Request $request,$file)
+    {
         $namespaces = $request->get('namespaces');
         $collection = $this->xmlTransformer->toJson($file, $namespaces);
         return Response::json($collection);

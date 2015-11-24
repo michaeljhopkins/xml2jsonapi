@@ -1,13 +1,15 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+use Laracasts\Integrated\Extensions\Laravel as IntegrationTest;
+
+class TestCase extends IntegrationTest
 {
     /**
      * The base URL to use while testing the application.
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'http://xml2json.local';
 
     /**
      * Creates the application.
@@ -18,7 +20,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
     {
         $app = require __DIR__.'/../bootstrap/app.php';
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
         return $app;
     }

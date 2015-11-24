@@ -14,7 +14,7 @@ class XmlTransformer implements XmlInterface
      */
     public function toJson($file, $namespaces = null)
     {
-        $xml = \File::get(storage_path('xmlFiles/' . $file));
+        $xml = \File::get(storage_path().$file);
         $xmlToConvert = simplexml_load_string($this->removeNamespace($xml, $namespaces));
         $jsonConversion = json_decode(json_encode($xmlToConvert), true);
         $collection = new Collection($jsonConversion);

@@ -1,27 +1,81 @@
-## Laravel PHP Framework
+## Xml2JsonAPI
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Because XML is hard and webdev shouldn\'t be
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Why?
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+I needed to parse several different namespaced XML returns from an external API for a project I was working on. The most ideal method would be to instead parse JSON. Upon the path of "how best could I manage to get JSON to work with instead of XML". One method I thought of was a simple xml2json external service I could call. I found several sites that did this, but non in a way that catered to API's.
 
-## Official Documentation
+This API is designed to be as simple as possible. I hope you find it to be helpful!
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## How?
+
+Below is the exported json from the Postman application for Google Chrome. I have also attached an example curl request
+
+Don't want to use Postman? Simply make a POST request to the endpoint [xml2jsonapi.com](http://xml2jsonapi.com) with two form fields. A pre created xml file as a *File* input type with name *xml*, and a *comma seperated (no spaced) string* as a *text* input with name *namespaces*.
+
+## Examples
+
+### Using Curl
+
+```shell
+curl -X POST -H "Content-Type: multipart/form-data" \
+    -F "xml=\full\path\to\xmlFile.xml" \
+    -F "namespaces=namespace1,namespace2,name3" \
+    'http://xml2jsonapi.com'
+```
+
+### Using Postman
+```json
+{
+    "id": "0d05343f-b0a7-a021-04c7-a390a930ff9f",
+    "name": "xml2josnapi",
+    "description": "",
+    "order": [""],
+    "folders": [],
+    "timestamp": 1448154413564,
+    "owner": "",
+    "remoteLink": "",
+    "public": false,
+    "requests": [
+        {
+            "id": "683b06e8-845d-4fdc-9cf2-b1f45a053d1b",
+            "headers": "",
+            "url": "http://xml2jsonapi.com",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "POST",
+            "data": [
+                {
+                    "key": "xml",
+                    "value": "xmlFile.xml",
+                    "type": "file",
+                    "enabled": true
+                },{
+                    "key": "namespaces",
+                    "value": "namespace1,namespace2,name3",
+                    "type": "text",
+                    "enabled": true
+                }
+            ],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "normal",
+            "helperAttributes": {},
+            "time": 1448329837783,
+            "name": "http://xml2jsonapi.com",
+            "description": "Example of how to use Xml2jsonapi.com via Postman request",
+            "collectionId": "0d05343f-b0a7-a021-04c7-a390a930ff9f"
+        }
+    ]
+}
+```
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+I am very open to any commits that aim to achieve the above in a more efficient way than currently implemented
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Xml2jsonapi is open-sourced software licensed under the [DBAD](https://github.com/philsturgeon/dbad/blob/master/LICENSE-en.md) license

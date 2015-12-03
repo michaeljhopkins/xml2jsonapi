@@ -3,6 +3,7 @@
 namespace Xjson\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Xjson\Http\Middleware\AdminAuth;
 
 class Kernel extends HttpKernel
 {
@@ -28,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \Xjson\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \Xjson\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth.admin' => AdminAuth::class,
     ];
 }

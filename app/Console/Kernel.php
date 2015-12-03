@@ -4,6 +4,7 @@ namespace Xjson\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Xjson\Console\Commands\MigrateReloadCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -14,6 +15,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \Xjson\Console\Commands\Inspire::class,
+        MigrateReloadCommand::class,
     ];
 
     /**

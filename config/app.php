@@ -151,6 +151,7 @@ return [
         IdeHelperServiceProvider::class,
         ServiceProvider::class,
         HtmlServiceProvider::class,
+        \PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -216,6 +217,8 @@ return [
         'Html' => HtmlFacade::class,
         'Form' => FormFacade::class,
         'Debugbar' => Facade::class,
+        'Tracker' => \PragmaRX\Tracker\Vendor\Laravel\Facade::class,
+
 
     ),
 

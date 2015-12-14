@@ -1,5 +1,8 @@
 var elixir = require('laravel-elixir');
 
+elixir.config.sourcemaps = true;
+
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +15,23 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix
+        .styles([
+            "roboto.min.css",
+            "material-fullpalette.css",
+            "ripples.min.css",
+            "dropdown.css",
+            "site.css"
+        ])
+        .scripts([
+            "jquery.js",
+            "custom.js",
+            "bootstrap.js",
+            "material.js",
+            "ripples.min.js",
+            "nouislider.js",
+            "custom2.js",
+            "dropdown.js",
+            "ga.js"
+        ]);
 });

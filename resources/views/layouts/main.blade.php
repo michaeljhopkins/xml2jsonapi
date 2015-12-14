@@ -8,6 +8,6 @@
 </head>
 <body>
 @yield('content')
-<script type="text/javascript" href="/js/all.js"></script>
+<script type="text/javascript" src="/js/all.js"></script>
 </body>
 </html>

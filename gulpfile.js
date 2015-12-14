@@ -17,6 +17,7 @@ elixir.config.sourcemaps = true;
 elixir(function(mix) {
     mix
         .styles([
+            "bootstrap.min.css",
             "roboto.min.css",
             "material-fullpalette.css",
             "ripples.min.css",

@@ -3,9 +3,6 @@
 use Barryvdh\Debugbar\Facade;
 use Barryvdh\Debugbar\ServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
-use Collective\Html\FormFacade;
-use Collective\Html\HtmlFacade;
-use Collective\Html\HtmlServiceProvider;
 
 return [
 
@@ -150,8 +147,6 @@ return [
 
         IdeHelperServiceProvider::class,
         ServiceProvider::class,
-        HtmlServiceProvider::class,
-        \PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -214,10 +209,7 @@ return [
          * Package facades
          */
 
-        'Html' => HtmlFacade::class,
-        'Form' => FormFacade::class,
         'Debugbar' => Facade::class,
-        'Tracker' => \PragmaRX\Tracker\Vendor\Laravel\Facade::class,
 
 
     ),
